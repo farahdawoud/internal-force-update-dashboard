@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+td {
+  background-color: #eee;
+  border-bottom: 0.5px solid lightgrey;
+  justify-content: center;
+}
+.top-row {
+  border: 0.5px solid lightgray;
+  height: 50px;
+}
+.icons-container {
+  justify-content: space-between;
+  flex-direction: row;
+  margin-inline-end: 10px;
+  display: flex;
+}
+.last-header {
+  width: 60px;
+}
