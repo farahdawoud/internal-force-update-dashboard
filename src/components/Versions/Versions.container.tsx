@@ -42,7 +42,7 @@ export const Versions = ({
       console.log("Response", response.data);
       setLoader(true);
       getVersions();
-      toast("Version is deleted successfully", {
+      toast("Version deleted successfully", {
         className: "toast-success",
         type: toast.TYPE.SUCCESS,
       });

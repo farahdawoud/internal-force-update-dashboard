@@ -48,7 +48,7 @@ export const MainController = () => {
       const response = await axiosInstance.post(Apis.addVersion, data);
       console.log("Response", response.data);
       await closeForm();
-      toast("Version is created successfully", {
+      toast("Version created successfully", {
         className: "toast-success",
         type: toast.TYPE.SUCCESS,
       });
@@ -68,7 +68,7 @@ export const MainController = () => {
       );
       console.log("Response", response.data);
       await closeForm();
-      toast("Version is updated successfully", {
+      toast("Version updated successfully", {
         className: "toast-success",
         type: toast.TYPE.SUCCESS,
       });
