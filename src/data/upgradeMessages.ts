@@ -13,7 +13,7 @@ const UPGRADE_MESSAGES = [
   },
   {
     message:
-      "Hi! We're excited to let you know about our latest update. This update includes bug fixes and performance improvements to make your experience better.So, why should you update?- To keep your experience smooth and problem-free- To get the latest features",
+      "Hi! We're excited to let you know about our latest update. This update includes bug fixes and performance improvements to make your experience better. So, why should you update?- To keep your experience smooth and problem-free- To get the latest features",
   },
 ];
 
