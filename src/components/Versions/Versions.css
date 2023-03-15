@@ -1,9 +1,10 @@
 table {
   width: 100%;
   border-collapse: collapse;
+  background-color: white;
 }
 td {
-  background-color: #eee;
+  background-color: white;
   border-bottom: 0.5px solid lightgrey;
   justify-content: center;
 }
