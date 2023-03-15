@@ -1,11 +1,11 @@
-const messages = [
+const UPGRADE_MESSAGES = [
   {
     message:
       "Hey there! We've just released a new update for our app and we really hope you'll install it as soon as possible. This update includes some great new features and improvements, as well as bug fixes and stability enhancements. So please, install the update and enjoy the best experience.",
   },
   {
     message:
-      "Hey there! We wanted to let you know that we've just released a new update for our app. This update includes some great new features and improvements, so we highly recommend you update to the latest version as soon as possible.Thanks, and we hope you enjoy the new update!",
+      "Hey there! We wanted to let you know that we've just released a new update for our app. This update includes some great new features and improvements, so we highly recommend you update to the latest version as soon as possible. Thanks, and we hope you enjoy the new update!",
   },
   {
     message:
@@ -17,4 +17,4 @@ const messages = [
   },
 ];
 
-export default messages;
+export default UPGRADE_MESSAGES;
