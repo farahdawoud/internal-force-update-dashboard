@@ -1,7 +1,12 @@
 .version-number {
-  margin-block: 20px;
-  background-color: lightgray;
-  width: 24%;
-  border-radius: 12px;
-  padding-block: 4px;
+  background-color: rgb(234, 231, 231);
+  color: #8b919c;
+  width: 50%;
+  text-align: center;
+  border-radius: 20px;
+  /* padding: 1px; */
+}
+p {
+  line-height: 2;
+  font-weight: 600;
 }
