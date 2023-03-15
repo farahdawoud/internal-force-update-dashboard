@@ -5,13 +5,14 @@ import "./Versions.css";
 
 export const VersionsView = ({
   versions,
-  deleteHandler,
-  editHandler,
+  onPressDelete,
+  onPressEdit,
 }: {
   versions: any;
-  deleteHandler: any;
-  editHandler: any;
+  onPressDelete: any;
+  onPressEdit: any;
 }) => {
+  console.log("Versions", versions);
   return (
     <div>
       <table align="center">
@@ -51,10 +52,10 @@ export const VersionsView = ({
               </td>
               <td align="center">
                 <EditAndDeleteIconsContainer
-                  deleteVersion={() => deleteHandler(item.id)}
+                  deleteVersion={() => onPressDelete(item.id)}
                   editVersion={() => {
                     console.log("first");
-                    editHandler(item);
+                    onPressEdit(item);
                   }}
                 />
               </td>

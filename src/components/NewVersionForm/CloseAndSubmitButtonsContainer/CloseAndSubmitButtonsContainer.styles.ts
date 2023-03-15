@@ -8,7 +8,7 @@ export default makeStyles(() =>
       paddingTop: 30,
       justifyContent: "space-between",
       alignSelf: "center",
-      marginInline: 300,
+      marginInline: 310,
     },
   })
 );

@@ -1,29 +1,32 @@
 import { Alert, Button, TextField } from "@mui/material";
-import { useState } from "react";
-import { ButtonsContainer } from "./ButtonsContainer/ButtonsContainer";
+import UPGRADE_MESSAGES from "../../data/upgradeMessages";
+import getRandomItem from "../../utils/RandomGenerator";
+import CloseAndSubmitButtonsContainer from "./CloseAndSubmitButtonsContainer";
 import useStyles from "./NewVersionForm.styles";
 import { TogglesContainer } from "./TogglesContainer/TogglesContainer";
 
 export const NewVersionFormView = ({
-  submitButtonHandler,
+  onPressSubmit,
   closeForm,
   data,
   setData,
-  generateMessageHandler,
   errorMessage,
 }: {
-  submitButtonHandler: any;
+  onPressSubmit: any;
   closeForm: any;
   setData: any;
   data: any;
-  generateMessageHandler: any;
   errorMessage: string;
 }) => {
   const styles = useStyles();
 
-  const [focusedInput, setFocusedInput] = useState(false);
+  console.log("Data", data);
 
-  console.log("focused", focusedInput);
+  const generateMessageHandler = () => {
+    const item = getRandomItem(UPGRADE_MESSAGES);
+    console.log("MSG", item.message);
+    setData({ ...data, updateMessage: item.message });
+  };
 
   return (
     <div className={styles.mainContainer}>
@@ -34,7 +37,6 @@ export const NewVersionFormView = ({
             id="outlined-basic"
             placeholder="App Name"
             value={data.appName}
-            onFocus={() => setFocusedInput(true)}
             style={{ flex: 1, marginInlineEnd: 18 }}
             onChange={(e) => setData({ ...data, appName: e.target.value })}
           />
@@ -42,7 +44,6 @@ export const NewVersionFormView = ({
             id="outlined-basic"
             placeholder="App Version - Example: 1.0.0"
             value={data.version}
-            onFocus={() => setFocusedInput(true)}
             style={{ flex: 1 }}
             onChange={(e) => setData({ ...data, version: e.target.value })}
           />
@@ -52,7 +53,6 @@ export const NewVersionFormView = ({
             id="outlined-basic"
             placeholder="Platform"
             value={data.platform}
-            onFocus={() => setFocusedInput(true)}
             style={{ flex: 1, marginInlineEnd: 18 }}
             onChange={(e) =>
               setData({ ...data, platform: e.target.value.toUpperCase() })
@@ -62,7 +62,6 @@ export const NewVersionFormView = ({
             id="outlined-basic"
             placeholder="Environment"
             value={data.environment}
-            onFocus={() => setFocusedInput(true)}
             style={{ flex: 1 }}
             onChange={(e) =>
               setData({ ...data, environment: e.target.value.toUpperCase() })
@@ -74,7 +73,6 @@ export const NewVersionFormView = ({
           id="outlined-basic"
           placeholder="Update Message"
           multiline={true}
-          onFocus={() => setFocusedInput(true)}
           rows={3}
           value={data.updateMessage}
           style={{ flex: 1, width: "100%", marginInlineEnd: 10 }}
@@ -88,16 +86,15 @@ export const NewVersionFormView = ({
         </Button>
         <TogglesContainer data={data} setData={setData} />
       </form>
-      {errorMessage != "" && !focusedInput && (
+      {errorMessage != "" && (
         <Alert style={{ marginTop: 10 }} severity="error">
           {errorMessage}
         </Alert>
       )}
 
-      <ButtonsContainer
+      <CloseAndSubmitButtonsContainer
         closeForm={closeForm}
-        submitButtonHandler={submitButtonHandler}
-        setFocusedInput={setFocusedInput}
+        onPressSubmit={onPressSubmit}
       />
     </div>
   );

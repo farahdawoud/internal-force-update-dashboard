@@ -1,20 +1,17 @@
 import { Button } from "@mui/material";
-import useStyles from "./ButtonsContainer.styles";
+import useStyles from "./CloseAndSubmitButtonsContainer.styles";
 
-export const ButtonsContainer = ({
+export const CloseAndSubmitButtonsContainer = ({
   closeForm,
-  submitButtonHandler,
-  setFocusedInput,
+  onPressSubmit,
 }: {
   closeForm: any;
-  submitButtonHandler: any;
-  setFocusedInput: any;
+  onPressSubmit: any;
 }) => {
   const styles = useStyles();
 
   const submit = () => {
-    setFocusedInput(false);
-    submitButtonHandler();
+    onPressSubmit();
   };
 
   return (
@@ -23,7 +20,7 @@ export const ButtonsContainer = ({
         Cancel
       </Button>
       <Button variant="outlined" onClick={submit}>
-        Add Version
+        Submit
       </Button>
     </div>
   );

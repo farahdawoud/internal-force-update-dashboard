@@ -2,7 +2,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { Button } from "@mui/material";
 import useStyles from "./AddVersionButton.styles";
 
-const AddButton = ({ addNewVersionHandler }) => {
+const AddVersionButton = ({ addNewVersionHandler }) => {
   const styles = useStyles();
 
   const buttonStyle = {
@@ -28,4 +28,4 @@ const AddButton = ({ addNewVersionHandler }) => {
   );
 };
 
-export default AddButton;
+export default AddVersionButton;
