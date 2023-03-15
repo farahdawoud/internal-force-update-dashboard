@@ -7,13 +7,14 @@ const AddButton = ({ addNewVersionHandler }) => {
 
   const buttonStyle = {
     borderRadius: 20,
-    backgroundColor: "lightblue",
+    backgroundColor: "#507DBC",
     height: 40,
+    padding: 20,
   };
 
   return (
     <div className={styles.buttonContainer}>
-      <p>Manage Your Versions</p>
+      <h4>Manage Your Versions</h4>
       <Button
         onClick={() => addNewVersionHandler()}
         variant="contained"

@@ -1,28 +1,50 @@
 import { useState } from "react";
 import axiosInstance from "../../networking/AxiosInstance";
-import { AddVersionFormView } from "./NewVersionForm.view";
-import Alert from "@mui/material/Alert";
+import { NewVersionFormView } from "./NewVersionForm.view";
+import getRandomItem from "../../utils/RandomGenerator";
+import UPGRADE_MESSAGES from "../../data/upgradeMessages";
+import Apis from "../../networking/Apis";
 
-export const AddVersionForm = ({ setFormFlag }: { setFormFlag: any }) => {
-  const [data, setData] = useState({
-    appName: "Demo",
-    version: "0.0.3",
-    platform: "ANDROID",
-    forceUpgrade: true,
-    flexibleUpgrade: false,
-    updateMessage:
-      "Hi! We're excited to let you know about our latest update. This update includes bug fixes and performance improvements to make your experience better.",
-  });
+export const NewVersionForm = ({
+  closeForm,
+  data,
+  setData,
+  editFlag,
+}: {
+  closeForm: any;
+  data: any;
+  setData: any;
+  editFlag: boolean;
+}) => {
   const [errorMessage, setErrorMessage] = useState("");
+  console.log("Data", data);
 
-  const closeForm = () => {
-    setFormFlag(false);
+  const generateMessageHandler = () => {
+    const item = getRandomItem(UPGRADE_MESSAGES);
+    console.log("MSG", item.message);
+    setData({ ...data, updateMessage: item.message });
   };
 
-  const addVersionHandler = async () => {
+  const addNewVersion = async () => {
     console.log("SUBMIT");
     try {
-      const response = await axiosInstance.post("/app-version", data);
+      const response = await axiosInstance.post(Apis.addVersion, data);
+      console.log("Response", response.data);
+      closeForm();
+    } catch (e: any) {
+      console.log("Error adding version ", e.response.data.errorMessage);
+      setErrorMessage(e.response.data.errorMessage);
+    }
+  };
+
+  const submitButtonHandler = (item: any) => {
+    editFlag ? editApiCall(item) : addNewVersion();
+  };
+
+  const editApiCall = async (item: any) => {
+    console.log("EDIT");
+    try {
+      const response = await axiosInstance.put(`${Apis.editVersion}${item.id}`);
       console.log("Response", response.data);
       closeForm();
     } catch (e: any) {
@@ -33,12 +55,14 @@ export const AddVersionForm = ({ setFormFlag }: { setFormFlag: any }) => {
 
   return (
     <div>
-      <AddVersionFormView
+      <NewVersionFormView
         closeForm={closeForm}
-        addVersionHandler={addVersionHandler}
+        submitButtonHandler={submitButtonHandler}
+        data={data}
+        generateMessageHandler={generateMessageHandler}
+        setData={setData}
+        errorMessage={errorMessage}
       />
-
-      {errorMessage != "" && <Alert severity="error">{errorMessage}</Alert>}
     </div>
   );
 };

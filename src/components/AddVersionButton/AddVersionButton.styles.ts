@@ -9,7 +9,7 @@ export default makeStyles((theme: Theme) =>
       justifyContent: "space-between",
       alignItems: "center",
       paddingInline: 8,
-      marginBottom: 40,
+      marginBottom: 4,
     },
   })
 );

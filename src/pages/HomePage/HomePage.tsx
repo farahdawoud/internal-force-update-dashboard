@@ -18,8 +18,8 @@ const HomePage = () => {
     updateMessage: "",
   });
 
-  const editVersionHandler = (item: any) => {
-    console.log("Edit", item);
+  const editHandler = (item: any) => {
+    console.log("Second", item, typeof item);
     setEditFlag(true);
     setData(item);
     setFormFlag(true);
@@ -62,7 +62,7 @@ const HomePage = () => {
                 openFormForNewVersion();
               }}
             />
-            <Versions editVersionHandler={editVersionHandler} />
+            <Versions editHandler={editHandler} />
           </div>
         )}
       </div>
