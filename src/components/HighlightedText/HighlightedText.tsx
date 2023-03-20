@@ -1,4 +1,3 @@
-import React from "react";
 import "./HighlightedText.css";
 
 export const HighlightedText = ({
