@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NewVersionFormView } from "../../components/NewVersionForm/NewVersionForm.view";
+import { NewVersionFormView } from "../../components/NewVersionForm/NewVersionForm";
 import { Versions } from "../../components/Versions/Versions.container";
 import Apis from "../../networking/Apis";
 import axiosInstance from "../../networking/AxiosInstance";

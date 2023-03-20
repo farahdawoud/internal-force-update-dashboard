@@ -3,7 +3,7 @@ import UPGRADE_MESSAGES from "../../data/upgradeMessages";
 import getRandomItem from "../../utils/RandomGenerator";
 import CloseAndSubmitButtonsContainer from "./CloseAndSubmitButtonsContainer";
 import useStyles from "./NewVersionForm.styles";
-import { TogglesContainer } from "./TogglesContainer/TogglesContainer";
+import TogglesContainer from "./TogglesContainer";
 
 export const NewVersionFormView = ({
   onPressSubmit,
