@@ -6,7 +6,6 @@ import axiosInstance from "../../networking/AxiosInstance";
 import "./MainController.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import { Dialog } from "@mui/material";
 
 export const MainController = () => {
   const [openForm, setOpenForm] = useState(false);
@@ -96,9 +95,6 @@ export const MainController = () => {
           />
         )}
         <ToastContainer hideProgressBar />
-        {/* <Dialog open={true}>
-          <DeleteConfirmationModal />
-        </Dialog> */}
       </div>
     </div>
   );

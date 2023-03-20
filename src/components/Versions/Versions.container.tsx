@@ -35,7 +35,6 @@ export const Versions = ({
   };
 
   const getVersions = async () => {
-    setLoader(true);
     try {
       const response = await axiosInstance.get(Apis.getAllVersions);
       console.log("Response", response.data);
@@ -44,20 +43,17 @@ export const Versions = ({
     } catch (e) {
       console.log("Error getting versions", e);
     }
-    setLoader(false);
   };
 
   //delete API call
   const deleteVersion = async (id: number) => {
     try {
       await axiosInstance.delete(`${Apis.deleteVersion}${id}`);
-      setLoader(true);
       getVersions();
       toast("Version deleted successfully", {
         className: "toast-success",
         type: toast.TYPE.SUCCESS,
       });
-      setLoader(false);
     } catch (e: any) {
       console.log("Error adding version ", e.response.data.errorMessage);
       toast(e.response.data.errorMessage, {
@@ -81,8 +77,14 @@ export const Versions = ({
     });
   };
 
+  const getVersionsWithLoader = async () => {
+    setLoader(true);
+    await getVersions();
+    setLoader(false);
+  };
+
   useEffect(() => {
-    getVersions();
+    getVersionsWithLoader();
   }, []);
 
   return (
@@ -104,12 +106,14 @@ export const Versions = ({
           <CircularProgress />
         </div>
       ) : versionsData.length > 0 ? (
-        <VersionsView
-          onPressEdit={onPressEdit}
-          versions={filteredData}
-          onPressDelete={deleteVersion}
-          filterEnvironment={filterEnvironment}
-        />
+        <>
+          <VersionsView
+            onPressEdit={onPressEdit}
+            versions={filteredData}
+            onPressDelete={deleteVersion}
+            filterEnvironment={filterEnvironment}
+          />
+        </>
       ) : (
         <h3 style={{ textAlign: "center" }}>No versions added yet.</h3>
       )}
