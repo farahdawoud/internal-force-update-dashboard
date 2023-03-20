@@ -1,3 +1,9 @@
+import {
+  FormControl,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
 import { HighlightedText } from "../HighlightedText/HighlightedText";
 import { PlatformIcon } from "../PlatformIcon/PlatformIcon";
 import EditAndDeleteIconsContainer from "./EditAndDeleteIconsContainer";
@@ -7,12 +13,13 @@ export const VersionsView = ({
   versions,
   onPressDelete,
   onPressEdit,
+  filterEnvironment,
 }: {
   versions: any;
   onPressDelete: any;
   onPressEdit: any;
+  filterEnvironment: any;
 }) => {
-  console.log("Versions", versions);
   return (
     <div>
       <table align="center">
@@ -21,7 +28,38 @@ export const VersionsView = ({
             <th>App Name</th>
             <th>App Version</th>
             <th>Platform</th>
-            <th>Environment</th>
+            <th style={{ width: 130 }}>
+              <FormControl fullWidth>
+                <Select
+                  inputProps={{
+                    disableUnderline: true,
+                    disableAnimation: true,
+                  }}
+                  defaultValue="placeholder"
+                  sx={{
+                    boxShadow: "none",
+                    ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                  }}
+                  style={{ width: "100%", height: 40 }}
+                  onChange={(event: SelectChangeEvent) => {
+                    filterEnvironment(event.target.value as string);
+                  }}
+                >
+                  <MenuItem disabled value="placeholder">
+                    Environment
+                  </MenuItem>
+                  <MenuItem value={"All"}>
+                    <em>All</em>
+                  </MenuItem>
+                  <MenuItem value={"PROD"}>PROD</MenuItem>
+                  <MenuItem value={"DEV"}>DEV</MenuItem>
+                  <MenuItem value={"UAT"}>UAT</MenuItem>
+                  <MenuItem value={"QA"}>QA</MenuItem>
+                  <MenuItem value={"PPROD"}>PPROD</MenuItem>
+                  <MenuItem value={"SIT"}>SIT</MenuItem>
+                </Select>
+              </FormControl>
+            </th>
             <th>Force Upgrade</th>
             <th>Flexible Upgrade</th>
             <th className="last-header" />
@@ -37,7 +75,7 @@ export const VersionsView = ({
               <td align="center">
                 <PlatformIcon platform={item.platform} />
               </td>
-              <td align="center">{item.environment.toLowerCase()}</td>
+              <td align="center">{item.environment}</td>
               <td align="center">
                 <HighlightedText
                   colored={item.forceUpgrade}

@@ -18,8 +18,23 @@ export const Versions = ({
   setIsEditPressed: any;
   setOpenForm: any;
 }) => {
-  const [versionsData, setVersionsData] = useState([]);
+  const [versionsData, setVersionsData] = useState<any>([]);
+  const [filteredData, setFilteredData] = useState<any>([]);
+
   const [loader, setLoader] = useState(false);
+
+  const filterEnvironment = (value: any) => {
+    console.log("Value", value);
+    if (value === "All") {
+      setFilteredData(versionsData);
+    } else {
+      let filteredData = versionsData.filter((obj: any) => {
+        return obj.environment === value;
+      });
+      console.log("Filtered", filteredData);
+      setFilteredData(filteredData);
+    }
+  };
 
   const getVersions = async () => {
     setLoader(true);
@@ -27,6 +42,7 @@ export const Versions = ({
       const response = await axiosInstance.get(Apis.getAllVersions);
       console.log("Response", response.data);
       setVersionsData(response.data);
+      setFilteredData(response.data);
     } catch (e) {
       console.log("Error", e);
     }
@@ -96,8 +112,9 @@ export const Versions = ({
       ) : versionsData.length > 0 ? (
         <VersionsView
           onPressEdit={onPressEdit}
-          versions={versionsData}
+          versions={filteredData}
           onPressDelete={deleteVersion}
+          filterEnvironment={filterEnvironment}
         />
       ) : (
         <h3 style={{ textAlign: "center" }}>No versions added yet.</h3>
