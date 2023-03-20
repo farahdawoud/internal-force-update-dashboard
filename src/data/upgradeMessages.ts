@@ -1,7 +1,7 @@
 const UPGRADE_MESSAGES = [
   {
     message:
-      "Hey there! We've just released a new update for our app and we really hope you'll install it as soon as possible. This update includes some great new features and improvements, as well as bug fixes and stability enhancements. So please, install the update and enjoy the best experience.",
+      "Hey there! We've just released a new update for our app and we really hope you'll install it as soon as possible. This update includes some great new features and improvements, as well as bug fixes and stability enhancements.",
   },
   {
     message:
@@ -13,7 +13,15 @@ const UPGRADE_MESSAGES = [
   },
   {
     message:
-      "Hi! We're excited to let you know about our latest update. This update includes bug fixes and performance improvements to make your experience better. So, why should you update?- To keep your experience smooth and problem-free- To get the latest features",
+      "Hi! We're excited to let you know about our latest update. This update includes bug fixes and performance improvements to make your experience better.",
+  },
+  {
+    message:
+      "We're excited to let you know about our latest update. This update includes bug fixes and performance improvements to make your experience better.",
+  },
+  {
+    message:
+      "We wanted to let you know that we've just released a new update for our app. This update includes some great new features and improvements, so we highly recommend you update to the latest version as soon as possible.",
   },
 ];
 
