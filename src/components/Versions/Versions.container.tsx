@@ -2,7 +2,7 @@ import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import Apis from "../../networking/Apis";
 import axiosInstance from "../../networking/AxiosInstance";
-import AddVersionButton from "../AddVersionButton/AddVersionButton.view";
+import AddVersionButton from "../AddVersionButton/AddVersionButton";
 import { versionItem, VersionsView } from "./Versions.view";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
