@@ -9,16 +9,27 @@ import { PlatformIcon } from "../PlatformIcon/PlatformIcon";
 import EditAndDeleteIconsContainer from "./EditAndDeleteIconsContainer";
 import "./Versions.css";
 
+export type versionItem = {
+  appName: string;
+  version: string;
+  environment: string;
+  forceUpgrade: boolean;
+  flexibleUpgrade: boolean;
+  platform: string;
+  id: number;
+  updateMessage: string;
+};
+
 export const VersionsView = ({
   versions,
   onPressDelete,
   onPressEdit,
   filterEnvironment,
 }: {
-  versions: any;
-  onPressDelete: any;
-  onPressEdit: any;
-  filterEnvironment: any;
+  versions: Array<versionItem>;
+  onPressDelete: Function;
+  onPressEdit: Function;
+  filterEnvironment: Function;
 }) => {
   return (
     <div>
@@ -66,7 +77,7 @@ export const VersionsView = ({
           </tr>
         </thead>
         <tbody>
-          {versions.map((item: any) => (
+          {versions.map((item: versionItem) => (
             <tr key={item.id}>
               <td align="center">{item.appName}</td>
               <td align="center">

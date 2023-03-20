@@ -12,10 +12,10 @@ export const NewVersionFormView = ({
   setData,
   errorMessage,
 }: {
-  onPressSubmit: any;
-  closeForm: any;
-  setData: any;
-  data: any;
+  onPressSubmit: Function;
+  closeForm: Function;
+  setData: Function;
+  data: { [key: string]: any };
   errorMessage: string;
 }) => {
   const styles = useStyles();

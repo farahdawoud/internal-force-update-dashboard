@@ -5,8 +5,8 @@ export const TogglesContainer = ({
   data,
   setData,
 }: {
-  data: any;
-  setData: any;
+  data: { [key: string]: any };
+  setData: Function;
 }) => {
   const styles = useStyles();
 
@@ -15,14 +15,16 @@ export const TogglesContainer = ({
       <div>
         <Toggle
           checked={data.forceUpgrade}
-          setChecked={(val: any) => setData({ ...data, forceUpgrade: val })}
+          setChecked={(val: boolean) => setData({ ...data, forceUpgrade: val })}
           label="Force Update"
         />
       </div>
       <div>
         <Toggle
           checked={data.flexibleUpgrade}
-          setChecked={(val: any) => setData({ ...data, flexibleUpgrade: val })}
+          setChecked={(val: boolean) =>
+            setData({ ...data, flexibleUpgrade: val })
+          }
           label="Flexible Update"
         />
       </div>

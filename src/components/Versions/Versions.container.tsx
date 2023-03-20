@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Apis from "../../networking/Apis";
 import axiosInstance from "../../networking/AxiosInstance";
 import AddVersionButton from "../AddVersionButton/AddVersionButton.view";
-import { VersionsView } from "./Versions.view";
+import { versionItem, VersionsView } from "./Versions.view";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -13,22 +13,22 @@ export const Versions = ({
   setIsEditPressed,
   setOpenForm,
 }: {
-  onPressEdit: any;
-  setData: any;
-  setIsEditPressed: any;
-  setOpenForm: any;
+  onPressEdit: Function;
+  setData: Function;
+  setIsEditPressed: Function;
+  setOpenForm: Function;
 }) => {
-  const [versionsData, setVersionsData] = useState<any>([]);
-  const [filteredData, setFilteredData] = useState<any>([]);
+  const [versionsData, setVersionsData] = useState<Array<any>>([]);
+  const [filteredData, setFilteredData] = useState<Array<any>>([]);
 
   const [loader, setLoader] = useState(false);
 
-  const filterEnvironment = (value: any) => {
+  const filterEnvironment = (value: string) => {
     console.log("Value", value);
     if (value === "All") {
       setFilteredData(versionsData);
     } else {
-      let filteredData = versionsData.filter((obj: any) => {
+      let filteredData = versionsData.filter((obj: versionItem) => {
         return obj.environment === value;
       });
       console.log("Filtered", filteredData);

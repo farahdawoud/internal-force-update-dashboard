@@ -7,8 +7,8 @@ const IconsContainer = ({
   editVersion,
   deleteVersion,
 }: {
-  editVersion: any;
-  deleteVersion: any;
+  editVersion: Function;
+  deleteVersion: Function;
 }) => {
   const [deleteLoader, setDeleteLoader] = useState(false);
 
@@ -20,7 +20,11 @@ const IconsContainer = ({
 
   return (
     <div className="icons-container">
-      <IconButton onClick={editVersion}>
+      <IconButton
+        onClick={() => {
+          editVersion();
+        }}
+      >
         <EditIcon />
       </IconButton>
       <IconButton onClick={clickHandler}>

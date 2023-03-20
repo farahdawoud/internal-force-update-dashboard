@@ -5,8 +5,8 @@ export const CloseAndSubmitButtonsContainer = ({
   closeForm,
   onPressSubmit,
 }: {
-  closeForm: any;
-  onPressSubmit: any;
+  closeForm: Function;
+  onPressSubmit: Function;
 }) => {
   const styles = useStyles();
 
@@ -16,7 +16,7 @@ export const CloseAndSubmitButtonsContainer = ({
 
   return (
     <div className={styles.buttonsContainer}>
-      <Button variant="text" onClick={closeForm}>
+      <Button variant="text" onClick={() => closeForm()}>
         Cancel
       </Button>
       <Button variant="outlined" onClick={submit}>

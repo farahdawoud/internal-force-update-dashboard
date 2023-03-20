@@ -59,7 +59,7 @@ export const MainController = () => {
   };
 
   //Edit Api call
-  const editVersion = async (id: any) => {
+  const editVersion = async (id: number) => {
     console.log("EDIT");
     try {
       const response = await axiosInstance.put(

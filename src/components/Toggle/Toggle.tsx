@@ -7,7 +7,7 @@ export const Toggle = ({
 }: {
   label: string;
   checked: boolean;
-  setChecked: any;
+  setChecked: Function;
 }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
