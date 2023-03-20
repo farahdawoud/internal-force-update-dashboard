@@ -2,7 +2,11 @@ import AddIcon from "@mui/icons-material/Add";
 import { Button } from "@mui/material";
 import useStyles from "./AddVersionButton.styles";
 
-const AddVersionButton = ({ addNewVersionHandler }) => {
+const AddVersionButton = ({
+  addNewVersionHandler,
+}: {
+  addNewVersionHandler: Function;
+}) => {
   const styles = useStyles();
 
   const buttonStyle = {
