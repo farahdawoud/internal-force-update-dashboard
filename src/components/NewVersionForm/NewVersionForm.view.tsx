@@ -20,11 +20,8 @@ export const NewVersionFormView = ({
 }) => {
   const styles = useStyles();
 
-  console.log("Data", data);
-
   const generateMessageHandler = () => {
     const item = getRandomItem(UPGRADE_MESSAGES);
-    console.log("MSG", item.message);
     setData({ ...data, updateMessage: item.message });
   };
 

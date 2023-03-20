@@ -25,7 +25,6 @@ export const MainController = () => {
 
   //When Edit button is pressed
   const onPressEdit = (item: any) => {
-    console.log("Second", item);
     setIsEditPressed(true);
     setData(item);
     setEditItemID(item.id);
@@ -43,7 +42,6 @@ export const MainController = () => {
 
   //Add API call
   const addNewVersion = async () => {
-    console.log("SUBMIT");
     try {
       const response = await axiosInstance.post(Apis.addVersion, data);
       console.log("Response", response.data);
@@ -60,20 +58,15 @@ export const MainController = () => {
 
   //Edit Api call
   const editVersion = async (id: number) => {
-    console.log("EDIT");
     try {
-      const response = await axiosInstance.put(
-        `${Apis.editVersion}${id}`,
-        data
-      );
-      console.log("Response", response.data);
+      await axiosInstance.put(`${Apis.editVersion}${id}`, data);
       await closeForm();
       toast("Version updated successfully", {
         className: "toast-success",
         type: toast.TYPE.SUCCESS,
       });
     } catch (e: any) {
-      console.log("Error adding version ", e.response.data.errorMessage);
+      console.log("Error editing version ", e.response.data.errorMessage);
       setErrorMessage(e.response.data.errorMessage);
     }
   };

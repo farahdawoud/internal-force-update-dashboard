@@ -24,14 +24,12 @@ export const Versions = ({
   const [loader, setLoader] = useState(false);
 
   const filterEnvironment = (value: string) => {
-    console.log("Value", value);
     if (value === "All") {
       setFilteredData(versionsData);
     } else {
       let filteredData = versionsData.filter((obj: versionItem) => {
         return obj.environment === value;
       });
-      console.log("Filtered", filteredData);
       setFilteredData(filteredData);
     }
   };
@@ -44,18 +42,15 @@ export const Versions = ({
       setVersionsData(response.data);
       setFilteredData(response.data);
     } catch (e) {
-      console.log("Error", e);
+      console.log("Error getting versions", e);
     }
     setLoader(false);
   };
 
   //delete API call
   const deleteVersion = async (id: number) => {
-    console.log("DELETE", id);
-
     try {
-      const response = await axiosInstance.delete(`${Apis.deleteVersion}${id}`);
-      console.log("Response", response.data);
+      await axiosInstance.delete(`${Apis.deleteVersion}${id}`);
       setLoader(true);
       getVersions();
       toast("Version deleted successfully", {
@@ -94,7 +89,6 @@ export const Versions = ({
     <div className="versions-view">
       <AddVersionButton
         addNewVersionHandler={() => {
-          console.log("ADD NEW VERSION");
           openFormForNewVersion();
         }}
       />

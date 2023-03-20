@@ -103,7 +103,6 @@ export const VersionsView = ({
                 <EditAndDeleteIconsContainer
                   deleteVersion={() => onPressDelete(item.id)}
                   editVersion={() => {
-                    console.log("first");
                     onPressEdit(item);
                   }}
                 />
