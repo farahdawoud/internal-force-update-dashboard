@@ -24,7 +24,7 @@ export const LoginPageController = () => {
       console.log("ress", token);
       cookies.set("token", token, { path: "/" });
       console.log("HERE cookies", cookies.get("token"));
-      navigate("/home");
+      navigate("/");
     } catch (e) {
       console.log("Error", e);
       alert("Unable to login. Please try after some time.");
