@@ -1,4 +1,4 @@
-import { IconButton, Snackbar } from "@mui/material";
+import { CircularProgress, IconButton, Snackbar } from "@mui/material";
 import { useEffect, useState } from "react";
 import Apis from "../../networking/Apis";
 import axiosInstance from "../../networking/AxiosInstance";
@@ -6,11 +6,9 @@ import "./ApiKey.css";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 export const ApiKey = () => {
-  const [apiKey, setApiKey] = useState<string>(
-    ""
-    // "MzMzZDA1ZWEtNGQ3Zi00NjNlLTliNDUtZThmYTJjYjdmMmE1"
-  );
+  const [apiKey, setApiKey] = useState<string>("");
   const [copy, setCopy] = useState<boolean>(false);
+  const [loader, setLoader] = useState<boolean>(false);
 
   const copyHandler = () => {
     navigator.clipboard.writeText(apiKey);
@@ -18,12 +16,14 @@ export const ApiKey = () => {
   };
 
   const getApiKey = async () => {
+    setLoader(true);
     try {
       const response = await axiosInstance.post(Apis.apiKey);
       setApiKey(response.data); //todo
     } catch (e) {
       console.log("Error", e);
     }
+    setLoader(false);
   };
   useEffect(() => {
     getApiKey(); //todo
@@ -36,12 +36,17 @@ export const ApiKey = () => {
         API key is required for integration with the mobile app. <br /> Each
         project should have a different API key.
       </p>
-      <div className="key-container">
-        <p className="api-key">{apiKey}</p>
-        <IconButton onClick={copyHandler} color="primary">
-          <ContentCopyIcon />
-        </IconButton>
-      </div>
+      {loader ? (
+        <CircularProgress size={30} />
+      ) : (
+        <div className="key-container">
+          <p className="api-key">{apiKey}</p>
+          <IconButton onClick={copyHandler} color="primary">
+            <ContentCopyIcon />
+          </IconButton>
+        </div>
+      )}
+
       <Snackbar
         message="Copied to clipboard!"
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
