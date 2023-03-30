@@ -1,5 +1,6 @@
 import AddIcon from "@mui/icons-material/Add";
 import { Button } from "@mui/material";
+import colors from "../../ui/theme/colors";
 import useStyles from "./AddVersionButton.styles";
 
 const AddVersionButton = ({
@@ -11,7 +12,7 @@ const AddVersionButton = ({
 
   const buttonStyle = {
     borderRadius: 20,
-    backgroundColor: "#507DBC",
+    backgroundColor: colors.lightBlue,
     height: 40,
     padding: 20,
   };
