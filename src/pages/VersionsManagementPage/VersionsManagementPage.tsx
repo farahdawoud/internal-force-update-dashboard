@@ -3,11 +3,11 @@ import { NewVersionFormView } from "../../components/NewVersionForm/NewVersionFo
 import { Versions } from "../../components/Versions/Versions.container";
 import Apis from "../../networking/Apis";
 import axiosInstance from "../../networking/AxiosInstance";
-import "./MainController.css";
+import "./VersionsManagementPage.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const MainController = () => {
+export const VersionsManagementPage = () => {
   const [openForm, setOpenForm] = useState(false);
   const [isEditPressed, setIsEditPressed] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -87,12 +87,14 @@ export const MainController = () => {
             errorMessage={errorMessage}
           />
         ) : (
-          <Versions
-            setOpenForm={setOpenForm}
-            onPressEdit={onPressEdit}
-            setIsEditPressed={setIsEditPressed}
-            setData={setData}
-          />
+          <>
+            <Versions
+              setOpenForm={setOpenForm}
+              onPressEdit={onPressEdit}
+              setIsEditPressed={setIsEditPressed}
+              setData={setData}
+            />
+          </>
         )}
         <ToastContainer hideProgressBar />
       </div>

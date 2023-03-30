@@ -1,9 +1,5 @@
-import {
-  FormControl,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-} from "@mui/material";
+import { FormControl } from "@mui/material";
+import EnvironmentDropDown from "../EnvironmentDropDown";
 import { HighlightedText } from "../HighlightedText/HighlightedText";
 import { PlatformIcon } from "../PlatformIcon/PlatformIcon";
 import EditAndDeleteIconsContainer from "./EditAndDeleteIconsContainer";
@@ -41,34 +37,7 @@ export const VersionsView = ({
             <th>Platform</th>
             <th style={{ width: 130 }}>
               <FormControl fullWidth>
-                <Select
-                  inputProps={{
-                    disableUnderline: true,
-                    disableAnimation: true,
-                  }}
-                  defaultValue="placeholder"
-                  sx={{
-                    boxShadow: "none",
-                    ".MuiOutlinedInput-notchedOutline": { border: 0 },
-                  }}
-                  style={{ width: "100%", height: 40 }}
-                  onChange={(event: SelectChangeEvent) => {
-                    filterEnvironment(event.target.value as string);
-                  }}
-                >
-                  <MenuItem disabled value="placeholder">
-                    Environment
-                  </MenuItem>
-                  <MenuItem value={"All"}>
-                    <em>All</em>
-                  </MenuItem>
-                  <MenuItem value={"PROD"}>PROD</MenuItem>
-                  <MenuItem value={"DEV"}>DEV</MenuItem>
-                  <MenuItem value={"UAT"}>UAT</MenuItem>
-                  <MenuItem value={"QA"}>QA</MenuItem>
-                  <MenuItem value={"PPROD"}>PPROD</MenuItem>
-                  <MenuItem value={"SIT"}>SIT</MenuItem>
-                </Select>
+                <EnvironmentDropDown filterEnvironment={filterEnvironment} />
               </FormControl>
             </th>
             <th>Force Upgrade</th>
