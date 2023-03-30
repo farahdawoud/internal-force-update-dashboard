@@ -3,8 +3,18 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { Cookies } from "react-cookie";
+const cookies = new Cookies();
 
 const Header = () => {
+  const token = cookies.get("token");
+  console.log("TOKEN", token);
+
+  const logout = () => {
+    console.log("LOGOUT");
+    cookies.remove("token");
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ background: "#2E3B55" }}>
@@ -12,7 +22,11 @@ const Header = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Internal Upgrade Portal
           </Typography>
-          <Button color="inherit">Login</Button>
+          {token && (
+            <Button href="/auth" color="inherit" onClick={() => logout()}>
+              Logout
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>
