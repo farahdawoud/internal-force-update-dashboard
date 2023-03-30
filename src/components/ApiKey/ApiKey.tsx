@@ -1,4 +1,4 @@
-import { CircularProgress, IconButton, Snackbar } from "@mui/material";
+import { Button, CircularProgress, IconButton, Snackbar } from "@mui/material";
 import { useEffect, useState } from "react";
 import Apis from "../../networking/Apis";
 import axiosInstance from "../../networking/AxiosInstance";
@@ -18,13 +18,25 @@ export const ApiKey = () => {
   const getApiKey = async () => {
     setLoader(true);
     try {
-      const response = await axiosInstance.post(Apis.apiKey);
+      const response = await axiosInstance.post(Apis.getApiKey);
       setApiKey(response.data); //todo
     } catch (e) {
       console.log("Error", e);
     }
     setLoader(false);
   };
+
+  const generateNewKey = async () => {
+    setLoader(true);
+    try {
+      const response = await axiosInstance.post(Apis.generateNewApiKey);
+      setApiKey(response.data); //todo
+    } catch (e) {
+      console.log("Error", e);
+    }
+    setLoader(false);
+  };
+
   useEffect(() => {
     getApiKey(); //todo
   }, []);
@@ -37,7 +49,18 @@ export const ApiKey = () => {
         project should have a different API key.
       </p>
       {loader ? (
-        <CircularProgress size={30} />
+        <div
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+          }}
+        >
+          <CircularProgress
+            style={{ alignSelf: "center", marginBlockEnd: 30 }}
+            size={30}
+          />
+        </div>
       ) : (
         <div className="key-container">
           <p className="api-key">{apiKey}</p>
@@ -45,6 +68,15 @@ export const ApiKey = () => {
             <ContentCopyIcon />
           </IconButton>
         </div>
+      )}
+
+      {!loader && (
+        <Button
+          onClick={() => generateNewKey()}
+          style={{ marginTop: 20, color: "red" }}
+        >
+          Generate New Key
+        </Button>
       )}
 
       <Snackbar
