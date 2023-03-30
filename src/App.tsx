@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import { HomePage } from "./pages/HomePage/HomePage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { LoginPageController } from "./pages/LoginPage/LoginPage.controller";
 import { CookiesProvider } from "react-cookie";
 import { ApiKey } from "./components/ApiKey/ApiKey";
@@ -16,7 +16,8 @@ function App() {
           <Routes>
             <Route path="/">
               <Route
-                path="home"
+                index
+                path="/"
                 element={
                   <>
                     <Header />
@@ -25,7 +26,7 @@ function App() {
                 }
               />
               <Route
-                path="home/versions"
+                path="versions"
                 element={
                   <ProtectedRoute>
                     <Header />
@@ -34,7 +35,7 @@ function App() {
                 }
               />
               <Route
-                path="home/api-key"
+                path="api-key"
                 element={
                   <ProtectedRoute>
                     <Header />
@@ -43,7 +44,7 @@ function App() {
                 }
               />
               <Route
-                path="/auth"
+                path="auth"
                 element={
                   <>
                     <Header />
