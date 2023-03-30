@@ -1,13 +1,11 @@
-.main-container {
-  padding: 20px;
-  padding-top: 0px;
-  justify-content: center;
-  align-items: center;
-  display: "flex";
-}
 .buttons-container {
   margin-inline: 16%;
   display: flex;
   align-self: center;
   justify-content: space-between;
+  margin-top: 20px;
+}
+.modal {
+  padding: 30px;
+  padding-bottom: 20px;
 }

@@ -1,25 +1,20 @@
-.navigation-buttons-container {
+.main-container-home {
   margin-top: 100px;
-  background-color: white;
-  margin-inline: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
-  padding-block: 40px;
-  flex-direction: column;
-  box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
 }
 .versions-button {
   background-color: rgb(56, 56, 225);
   color: white;
 }
-.sub-container {
+.card-home {
+  display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  display: flex;
-  /* margin-inline: 840px; */
-  height: 120px;
-  /* background-color: violet; */
+  box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  border-radius: 20px;
+  background-color: white;
 }

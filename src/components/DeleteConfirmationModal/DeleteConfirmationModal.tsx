@@ -18,8 +18,8 @@ export const DeleteConfirmationModal = ({
       }}
       open={visible}
     >
-      <div className="main-container">
-        <p>Are you sure you want to delete this version?</p>
+      <div className="modal">
+        <div>Are you sure you want to delete this version?</div>
         <div className="buttons-container">
           <Button variant="outlined" onClick={() => cancelDelete()}>
             Cancel
