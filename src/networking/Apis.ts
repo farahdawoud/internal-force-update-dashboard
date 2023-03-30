@@ -4,7 +4,8 @@ const Apis = {
   deleteVersion: "/dashboard/app-version/version/id/",
   getAllVersions: "/dashboard/app-version",
   login: "/auth/authenticate",
-  apiKey: "/auth/api-key",
+  getApiKey: "/auth/api-key",
+  generateNewApiKey: "/auth/regenerate-api-key",
 };
 
 export default Apis;
