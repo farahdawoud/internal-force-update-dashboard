@@ -8,8 +8,8 @@ import colors from "../../ui/theme/colors";
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <div className="navigation-buttons-container">
-      <div className="sub-container">
+    <div className="main-container-home">
+      <div className="card-home">
         <Button
           style={{
             color: "white",
@@ -18,6 +18,7 @@ const Home = () => {
             width: "100%",
             borderRadius: 30,
             paddingBlock: 10,
+            marginBlockEnd: 30,
           }}
           sx={{ boxShadow: 10 }}
           endIcon={<ArrowForwardIcon />}
@@ -31,8 +32,8 @@ const Home = () => {
           style={{
             color: "white",
             backgroundColor: "#8E4162",
-            width: "100%",
             borderRadius: 30,
+            width: "100%",
             paddingBlock: 10,
           }}
           onClick={() => navigate("api-key")}
