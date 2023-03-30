@@ -1,4 +1,5 @@
 import { Button, CircularProgress, TextField } from "@mui/material";
+import colors from "../../ui/theme/colors";
 import "./LoginPage.css";
 
 export const LoginPage = ({
@@ -46,7 +47,13 @@ export const LoginPage = ({
             <Button
               variant="contained"
               onClick={() => login()}
-              style={{ width: "70%", alignSelf: "center", marginTop: 30 }}
+              style={{
+                width: "70%",
+                alignSelf: "center",
+                marginTop: 30,
+                borderRadius: 20,
+                backgroundColor: colors.lightBlue,
+              }}
             >
               Login
             </Button>
