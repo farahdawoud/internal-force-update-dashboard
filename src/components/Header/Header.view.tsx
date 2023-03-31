@@ -24,7 +24,7 @@ const Header = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Internal Upgrade Portal
           </Typography>
-          {location.pathname !== "/" && (
+          {location.pathname !== "/" && token && (
             <Button style={{ marginInlineEnd: 30 }} href="/" color="inherit">
               Home
             </Button>
