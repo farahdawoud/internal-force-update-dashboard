@@ -8,6 +8,9 @@ export default makeStyles((theme: Theme) =>
       backgroundColor: colors.white,
       borderRadius: 10,
       padding: 18,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
     },
     buttonsContainer: {
       display: "flex",
