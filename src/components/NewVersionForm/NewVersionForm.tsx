@@ -75,15 +75,12 @@ export const NewVersionFormView = ({
           style={{ flex: 1, width: "100%", marginInlineEnd: 10 }}
           onChange={(e) => setData({ ...data, updateMessage: e.target.value })}
         />
-        <Button
-          className={styles.generateMsgButton}
-          onClick={() => generateMessageHandler()}
-        >
+        <Button onClick={() => generateMessageHandler()}>
           Generate message
         </Button>
         <TogglesContainer data={data} setData={setData} />
       </form>
-      {errorMessage != "" && (
+      {errorMessage !== "" && (
         <Alert style={{ marginTop: 10 }} severity="error">
           {errorMessage}
         </Alert>

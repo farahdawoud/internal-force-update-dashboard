@@ -88,7 +88,7 @@ export const Versions = ({
   }, []);
 
   return (
-    <div className="versions-view">
+    <div className="versions-container">
       <AddVersionButton
         addNewVersionHandler={() => {
           openFormForNewVersion();
