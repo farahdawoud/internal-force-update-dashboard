@@ -76,28 +76,26 @@ export const VersionsManagementPage = () => {
   };
 
   return (
-    <div className="wrapper">
-      <div className="home-page-container">
-        {openForm ? (
-          <NewVersionFormView
-            closeForm={closeForm}
-            data={data}
+    <div className="main">
+      {openForm ? (
+        <NewVersionFormView
+          closeForm={closeForm}
+          data={data}
+          setData={setData}
+          onPressSubmit={onPressSubmit}
+          errorMessage={errorMessage}
+        />
+      ) : (
+        <>
+          <Versions
+            setOpenForm={setOpenForm}
+            onPressEdit={onPressEdit}
+            setIsEditPressed={setIsEditPressed}
             setData={setData}
-            onPressSubmit={onPressSubmit}
-            errorMessage={errorMessage}
           />
-        ) : (
-          <>
-            <Versions
-              setOpenForm={setOpenForm}
-              onPressEdit={onPressEdit}
-              setIsEditPressed={setIsEditPressed}
-              setData={setData}
-            />
-          </>
-        )}
-        <ToastContainer hideProgressBar />
-      </div>
+        </>
+      )}
+      <ToastContainer hideProgressBar />
     </div>
   );
 };

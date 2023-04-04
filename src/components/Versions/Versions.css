@@ -21,3 +21,9 @@ td {
 .last-header {
   width: 60px;
 }
+.versions-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
