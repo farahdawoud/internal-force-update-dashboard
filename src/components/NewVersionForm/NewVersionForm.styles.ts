@@ -11,28 +11,11 @@ export default makeStyles((theme: Theme) =>
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-    },
-    buttonsContainer: {
-      display: "flex",
-      flexDirection: "row",
-      paddingTop: 30,
-      justifyContent: "space-between",
-      alignSelf: "center",
-      marginInline: 300,
+      width: "40%",
     },
     horizontalDiv: {
       display: "flex",
       marginBottom: 18,
-    },
-    generateMsgButton: {
-      backgroundColor: "transparent",
-    },
-    togglesContainer: {
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "space-between",
-      paddingInline: 8,
     },
   })
 );
