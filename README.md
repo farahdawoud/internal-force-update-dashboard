@@ -2,7 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This is an internal version upgrade management portal for mobile apps where you can control and manage applying force updates or flexible updates to all of your versions.
+This is a simple solution to ensure your mobile app users stay up-to-date with the latest version.
+
+This is a version upgrade management portal for mobile apps where you can control and manage applying force updates or flexible updates to all of your versions.
 
 The deployed admin portal can be found below:
 [https://upgrade-portal.netlify.app]
