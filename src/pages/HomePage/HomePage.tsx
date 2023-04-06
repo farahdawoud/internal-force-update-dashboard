@@ -31,7 +31,7 @@ const Home = () => {
           sx={{ boxShadow: 10 }}
           style={{
             color: "white",
-            backgroundColor: "#8E4162",
+            backgroundColor: colors.purple,
             borderRadius: 30,
             width: "100%",
             paddingBlock: 10,

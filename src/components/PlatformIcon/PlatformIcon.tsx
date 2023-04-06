@@ -1,4 +1,3 @@
-import React from "react";
 import images from "../../assets/images";
 
 export const PlatformIcon = ({ platform }: { platform: string }) => {
