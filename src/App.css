@@ -2,3 +2,10 @@
   color: rgb(112, 111, 111);
   font-family: Arial;
 }
+
+:root {
+  --light-blue: rgb(56, 56, 225);
+  --light-gray: lightgray;
+  --highlighted-text-gray: #8b919c;
+  --key-container-bkground: #f2f2f2;
+}

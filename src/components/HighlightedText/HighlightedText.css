@@ -1,6 +1,5 @@
 .version-number {
-  background-color: rgb(234, 231, 231);
-  color: #8b919c;
+  color: var(--highlighted-text-gray);
   width: 50%;
   text-align: center;
   border-radius: 20px;

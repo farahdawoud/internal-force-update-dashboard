@@ -7,7 +7,7 @@
   margin-top: 100px;
 }
 .key-container {
-  background-color: #f2f2f2;
+  background-color: var(--key-container-bkground);
   border-radius: 10px;
   width: 100%;
   display: flex;

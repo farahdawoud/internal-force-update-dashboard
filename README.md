@@ -2,7 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This is an internal version upgrade management portal for mobile apps where you can control and manage applying force updates or flexible updates to all of your versions.
+This is a simple solution to ensure your mobile app users stay up-to-date with the latest version.
+
+With this tool, you'll be able to easily manage updates to your mobile app and ensure your users always have access to the latest features and bug fixes.
+
+Our dashboard offers two update options: force updates and flexible updates. A force update requires all users to update their app before they can continue using it, while a flexible update allows users to continue using the app without updating but provides a gentle reminder to update when they open the app.
+
+To get started, simply log in to our dashboard, add a new version, and select the update option that best suits your needs. You'll be able to customize the update message, select the platform (IOS, ANDROID), and the environment (DEV, UAT, PROD, ..).
 
 The deployed admin portal can be found below:
 [https://upgrade-portal.netlify.app]
@@ -11,7 +17,7 @@ The deployed admin portal can be found below:
 
 In the project directory, you can run:
 
-## `npm install --legacy-peer-deps`
+### `npm install --legacy-peer-deps`
 
 Installs dependencies while ignoring peerDependencies when building a package tree
 
