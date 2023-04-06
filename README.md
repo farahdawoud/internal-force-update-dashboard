@@ -2,9 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This is an internal version upgrade management portal for mobile apps where you can control and manage applying force updates or flexible updates to all of your versions.
+
+The deployed admin portal can be found below:
+[https://upgrade-portal.netlify.app]
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+## `npm install --legacy-peer-deps`
+
+Installs dependencies while ignoring peerDependencies when building a package tree
 
 ### `npm start`
 

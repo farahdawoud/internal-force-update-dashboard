@@ -14,7 +14,6 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(function (config) {
   const token = cookies.get("token");
-  console.log("TOKK", token);
   config.headers.Authorization = `Bearer ${token}`;
 
   return config;

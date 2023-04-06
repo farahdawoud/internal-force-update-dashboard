@@ -1,2 +1,2 @@
-import { LoginPage } from "./LoginPage";
-export default LoginPage;
+import { LoginPageController } from "./LoginPage.controller";
+export default LoginPageController;
