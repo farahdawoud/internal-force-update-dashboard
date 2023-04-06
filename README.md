@@ -11,7 +11,7 @@ The deployed admin portal can be found below:
 
 In the project directory, you can run:
 
-## `npm install --legacy-peer-deps`
+### `npm install --legacy-peer-deps`
 
 Installs dependencies while ignoring peerDependencies when building a package tree
 
