@@ -23,11 +23,10 @@ export const LoginPageController = () => {
       const token = response.data.jwt;
       console.log("ress", token);
       cookies.set("token", token, { path: "/" });
-      console.log("HERE cookies", cookies.get("token"));
       navigate("/");
     } catch (e) {
       console.log("Error", e);
-      alert("Unable to login. Please try after some time.");
+      alert("Unable to login.");
     }
     setLoader(false);
   };
