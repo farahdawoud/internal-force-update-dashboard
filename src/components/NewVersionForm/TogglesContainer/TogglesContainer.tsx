@@ -15,7 +15,9 @@ export const TogglesContainer = ({
       <div>
         <Toggle
           checked={data.forceUpgrade}
-          setChecked={(val: boolean) => setData({ ...data, forceUpgrade: val })}
+          setChecked={(val: boolean) =>
+            setData({ ...data, forceUpgrade: val, flexibleUpgrade: false })
+          }
           label="Force Update"
         />
       </div>
@@ -23,7 +25,7 @@ export const TogglesContainer = ({
         <Toggle
           checked={data.flexibleUpgrade}
           setChecked={(val: boolean) =>
-            setData({ ...data, flexibleUpgrade: val })
+            setData({ ...data, flexibleUpgrade: val, forceUpgrade: false })
           }
           label="Flexible Update"
         />
