@@ -2,6 +2,7 @@ import { Alert, Button, TextField } from "@mui/material";
 import UPGRADE_MESSAGES from "../../data/upgradeMessages";
 import getRandomItem from "../../utils/RandomGenerator";
 import CloseAndSubmitButtonsContainer from "./CloseAndSubmitButtonsContainer";
+import { DropDownsContainer } from "./DropDownsContainer/DropDownsContainer";
 import useStyles from "./NewVersionForm.styles";
 import TogglesContainer from "./TogglesContainer";
 
@@ -45,26 +46,7 @@ export const NewVersionFormView = ({
             onChange={(e) => setData({ ...data, version: e.target.value })}
           />
         </div>
-        <div className={styles.horizontalDiv}>
-          <TextField
-            id="outlined-basic"
-            placeholder="Platform"
-            value={data.platform}
-            style={{ flex: 1, marginInlineEnd: 18 }}
-            onChange={(e) =>
-              setData({ ...data, platform: e.target.value.toUpperCase() })
-            }
-          />
-          <TextField
-            id="outlined-basic"
-            placeholder="Environment"
-            value={data.environment}
-            style={{ flex: 1 }}
-            onChange={(e) =>
-              setData({ ...data, environment: e.target.value.toUpperCase() })
-            }
-          />
-        </div>
+        <DropDownsContainer data={data} setData={setData} />
 
         <TextField
           id="outlined-basic"

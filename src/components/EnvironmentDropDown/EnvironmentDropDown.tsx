@@ -7,10 +7,6 @@ export const EnvironmentDropDown = ({
 }) => {
   return (
     <Select
-      inputProps={{
-        disableUnderline: true,
-        disableAnimation: true,
-      }}
       defaultValue="placeholder"
       sx={{
         boxShadow: "none",
